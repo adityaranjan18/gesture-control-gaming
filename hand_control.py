@@ -13,14 +13,13 @@ threshold = 40
 cooldown = 1.0
 last_action_time = time.time()
 
-# Palm landmark connections (more palm-focused)
 palm_connections = [
-    (0, 1), (1, 2), (2, 3), (3, 4),  # Thumb
-    (0, 5), (5, 6), (6, 7), (7, 8),  # Index
-    (5, 9), (9, 10), (10, 11), (11, 12),  # Middle
-    (9, 13), (13, 14), (14, 15), (15, 16),  # Ring
-    (13, 17), (17, 18), (18, 19), (19, 20),  # Pinky
-    (0, 17), (0, 13), (0, 9)  # Palm base to fingers
+    (0, 1), (1, 2), (2, 3), (3, 4),  
+    (0, 5), (5, 6), (6, 7), (7, 8),  
+    (5, 9), (9, 10), (10, 11), (11, 12),  
+    (9, 13), (13, 14), (14, 15), (15, 16),  
+    (13, 17), (17, 18), (18, 19), (19, 20),  
+    (0, 17), (0, 13), (0, 9)  
 ]
 
 with mp_hands.Hands(
@@ -43,7 +42,6 @@ with mp_hands.Hands(
             hand_landmarks = results.multi_hand_landmarks[0]
             h, w, _ = image.shape
 
-            # Draw Spidey Web: Connect all palm landmarks like a web
             for connection in palm_connections:
                 start = hand_landmarks.landmark[connection[0]]
                 end = hand_landmarks.landmark[connection[1]]
@@ -51,7 +49,6 @@ with mp_hands.Hands(
                 x2, y2 = int(end.x * w), int(end.y * h)
                 cv2.line(image, (x1, y1), (x2, y2), (255, 255, 255), 2)
 
-            # Optional: Mark the center of the palm (landmark 0)
             palm_x = int(hand_landmarks.landmark[0].x * w)
             palm_y = int(hand_landmarks.landmark[0].y * h)
             cv2.circle(image, (palm_x, palm_y), 15, (0, 255, 0), -1)
@@ -78,7 +75,7 @@ with mp_hands.Hands(
 
             prev_x, prev_y = palm_x, palm_y
 
-        cv2.imshow('🕸️ Spidey Web Palm Control', image)
+        cv2.imshow('Spidey Web Palm Control', image)
         if cv2.waitKey(5) & 0xFF == 27:
             break
 
