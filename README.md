@@ -5,6 +5,11 @@ Play PC games using hand gestures with Python, OpenCV, and MediaPipe.
 
 ---
 
+# 🔗 Watch the demo on LinkedIn
+
+https://www.linkedin.com/posts/aditya-ranjan-36330b2a5_python-computervision-gesturecontrol-activity-7356043791474044928-ue-o?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmNADsB1tCXVv1FYSnv7DyHaNGgL37eVGA
+
+
 ## 🧠 About the Project
 
 This project lets you control games like **Temple Run** or **Subway Surfers** using simple **hand gestures** instead of a keyboard.
